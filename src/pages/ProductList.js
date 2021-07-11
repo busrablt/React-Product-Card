@@ -43,6 +43,16 @@ function ProductList() {
         });
         setFilteredData(result);
     };
+	function getProductImage(thumbnailName) {
+		if (thumbnailName == null || thumbnailName == undefined) {
+			return "./default-image.PNG"
+		} else {
+			return `https://i-return-294414.appspot.com/images/${thumbnailName}`
+		}
+	
+	}
+
+	
 	  
     return (
         <div className="container">
@@ -66,7 +76,7 @@ function ProductList() {
 				<Grid.Column width={5} className="product-card ">
 					<div className="badge">Yeni</div>
 					<div className="product-tumb">
-						<Image src={"https://i-return-294414.appspot.com/images/"+ product.thumbnail_names} />
+					<Image src={getProductImage(product.thumbnail_names)} />
 					</div>
 					<div className="product-details">
 						<span className="product-category">{product.category}</span>
